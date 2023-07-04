@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:instagram_ui/instagram/new_post.dart';
 import 'package:instagram_ui/instagram/post_widget.dart';
 import 'package:instagram_ui/instagram/story_widget.dart';
 
@@ -36,7 +37,7 @@ class _InstagramState extends State<Instagram> {
               height: 20,
               width: 20,
             ),
-            SizedBox(
+            const SizedBox(
               width: 15,
             ),
             Padding(
@@ -135,6 +136,9 @@ class _InstagramState extends State<Instagram> {
                 label: ''),
           ],
         ),
+        floatingActionButton: FloatingActionButton(onPressed: (){
+          Navigator.push(context, MaterialPageRoute(builder: (context) => NewPost(),));
+        },child: Icon(Icons.add)),
       ),
     );
   }

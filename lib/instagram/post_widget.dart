@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import '../models/post.dart';
 import '../models/user.dart';
 
-
 class PostWidget extends StatelessWidget {
   final User user;
 
@@ -26,7 +25,7 @@ class PostWidget extends StatelessWidget {
                   user.image!,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 width: 10,
               ),
               Text(
@@ -41,7 +40,9 @@ class PostWidget extends StatelessWidget {
         const SizedBox(
           height: 15,
         ),
-        Image.network(post.imageUrl!),
+        post.imageFile == null
+            ? Image.network(post.imageUrl!,fit: BoxFit.cover,)
+            : Image.file(post.imageFile!,fit: BoxFit.cover,),
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: Row(
@@ -51,7 +52,7 @@ class PostWidget extends StatelessWidget {
                 height: 25,
                 width: 25,
               ),
-              SizedBox(
+              const SizedBox(
                 width: 10,
               ),
               Image.asset(
@@ -76,7 +77,6 @@ class PostWidget extends StatelessWidget {
             ],
           ),
         ),
-
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 10),
           child: Row(
@@ -91,7 +91,9 @@ class PostWidget extends StatelessWidget {
                 'other ',
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
-              SizedBox(height: 30,),
+              SizedBox(
+                height: 30,
+              ),
             ],
           ),
         ),
